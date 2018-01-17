@@ -14,9 +14,9 @@ class Expression(object):
         parts = expression.split(' ')
 
         if len(parts) != 3:
-            return None
+            return True
 
-        if not common.is_number(parts[0]) or not common.is_number(parts[0]):
+        if not common.is_number(parts[0]) or not common.is_number(parts[2]):
             return True
 
         if not cls.__is_valid_operator(parts[1]):
@@ -44,7 +44,7 @@ class Expression(object):
             return self.left_number - self.right_number
    
         if self.operator == '/':
-            return self.left_number // self.right_number
+            return self.left_number / self.right_number
         if self.operator == '*':
             return self.left_number * self.right_number
 
